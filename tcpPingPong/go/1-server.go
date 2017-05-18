@@ -10,7 +10,14 @@ import (
 )
 
 func main() {
-  l, err := net.Listen("tcp", ":9000")
+  var PORT string
+  if len(os.Args) > 1 {
+    PORT = os.Args[1]
+  } else {
+    PORT = "9000"
+  }
+
+  l, err := net.Listen("tcp", ":"+PORT)
   if err != nil {
     fmt.Println("Error listening:", err.Error())
     os.Exit(1)
