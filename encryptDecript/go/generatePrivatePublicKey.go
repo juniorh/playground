@@ -12,6 +12,8 @@ import(
 func main(){
   Priv,_ := rsa.GenerateKey(rand.Reader, 128)
   Pub := Priv.PublicKey
+  //privKey := Priv
+  pubKey := Pub
   PCValues := Priv.Precomputed
   PrivASN1 := x509.MarshalPKCS1PrivateKey(Priv)
   PubASN1, err := x509.MarshalPKIXPublicKey(&Priv.PublicKey)
